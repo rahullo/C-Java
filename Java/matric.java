@@ -26,19 +26,22 @@ public class matric {
         
         for(i = 0; i < 3; i++){
             for(j = 0; j < 3; j++){
-                    System.out.println("twoDArray["+i+"]["+j+"]" + twoDArray[i][j]);
+                    System.out.println("twoDArray["+i+"]["+j+"] " + twoDArray[i][j]);
             }
         }
     }
 
-    public int findingGreatest(){
+    public int[] findingGreatest(){
         int i, j;
-        int ans = Integer.MIN_VALUE;
+        int[] ans = new int[2];
+        int num = Integer.MIN_VALUE;
         
         for(i = 0; i < 3; i++){
             for(j = 0; j < 3; j++){
-                if(twoDArray[i][j] > ans){
-                    ans = twoDArray[i][j];
+                if(twoDArray[i][j] > num){
+                    num = twoDArray[i][j];
+                    ans[0] = i;
+                    ans[1] = j;
                 }
             }
         }
@@ -51,7 +54,7 @@ public class matric {
         obj.insertingArrayElement();
         obj.printingArrayElement();
 
-        int greatest = obj.findingGreatest();
-        System.out.println("greatest element is " + greatest);
+        int[] greatest = obj.findingGreatest();
+        System.out.println("greatest element is at place " + greatest[0] + " and " + greatest[1]);
     }
 }
