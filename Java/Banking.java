@@ -1,7 +1,8 @@
-public class Account {
+class Account {
     int accountNum;
     String accountHolderName;
     int balance;
+    
     public Account(int accountNum,String accountHolderName, int balance){
         this.accountNum = accountNum;
         this.accountHolderName = accountHolderName;
@@ -18,6 +19,15 @@ public class Account {
         return ammount;
     }
 
+    
+}
+
+// class SavingAccount extends Account{
+//     public SavingAccount(){
+//     }
+// }
+
+public class Banking{
     public static void main(String args[]){
         Account ac1 = new Account(1234, "Rahul", 2000);
 
