@@ -7,8 +7,28 @@
 //     7. Design a class hierarchy for a zoo management system. Include classes for Animal, Mammal, Bird, and Reptile. Implement methods for feeding, breeding, and habitat management.
 
 
+class Animal {
+    public void eat(){
+        System.out.println("Animal can eat food..");
+    }
+}
+
+
+class Lion extends Animal {
+    public void eat(){
+        System.out.println("Lion eats meat(non-veg)..");
+    }
+}
+
 class Rough {
     public static void main(String[] args){
         System.out.println("Rahul Lohra");
+
+        Animal a1 = new Animal();
+
+        Lion l1 = new Lion();
+
+        a1.eat();
+        l1.eat();
     }
 }
