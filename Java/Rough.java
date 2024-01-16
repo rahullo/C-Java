@@ -8,27 +8,37 @@
 
 
 class Animal {
+
+    String name;
+    String food;
+
+    public Animal(String name, String food){
+        this.name = name;
+        this.food = food;
+
+    }
+
     public void eat(){
-        System.out.println("Animal can eat food..");
+        System.out.println(name + " can eat " + food);
     }
 }
 
 
-class Lion extends Animal {
-    public void eat(){
-        System.out.println("Lion eats meat(non-veg)..");
-    }
-}
+// class Lion extends Animal {
+//     public void eat(){
+//         System.out.println("Lion eats meat(non-veg)..");
+//     }
+// }
 
 class Rough {
     public static void main(String[] args){
         System.out.println("Rahul Lohra");
 
-        Animal a1 = new Animal();
+        Animal a1 = new Animal("Goat", "Grass");
 
-        Lion l1 = new Lion();
+        // Lion l1 = new Lion();
 
         a1.eat();
-        l1.eat();
+        // l1.eat();
     }
 }
