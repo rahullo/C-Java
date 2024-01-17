@@ -24,11 +24,18 @@ class Animal {
 }
 
 
-// class Lion extends Animal {
-//     public void eat(){
-//         System.out.println("Lion eats meat(non-veg)..");
-//     }
-// }
+class Lion extends Animal {
+
+
+    public Lion(String name, String food){
+        super(name, food);
+
+    }
+
+    public void eat(){
+        System.out.println("Lion eats meat(non-veg)..");
+    }
+}
 
 class Rough {
     public static void main(String[] args){
