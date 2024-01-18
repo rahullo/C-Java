@@ -34,6 +34,7 @@ public class SimpleCalculator {
                     result = num1 / num2;
                 } else {
                     System.out.println("Error: Division by zero is not allowed.");
+                    scanner.close();
                     return;
                 }
                 break;
@@ -42,11 +43,13 @@ public class SimpleCalculator {
                     result = num1 % num2;
                 } else {
                     System.out.println("Error: Modulo by zero is not allowed.");
+                    scanner.close();
                     return;
                 }
                 break;
             default:
                 System.out.println("Error: Invalid operation entered.");
+                scanner.close();
                 return;
         }
 
