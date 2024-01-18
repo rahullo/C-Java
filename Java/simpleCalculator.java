@@ -1,73 +1,58 @@
 import java.util.Scanner;
 
-public class simpleCalculator {
-    public static void main(String args[]){
-        int num1, num2;
-        char operator;
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the operation: ");
-        System.out.println("Enter a for addition: ");
-        System.out.println("Enter s for subtration: ");
-        System.out.println("Enter m for multiplication: ");
-        System.out.println("Enter d for division: ");
-        System.out.println("Enter r for Modulo: ");
+        // Input first number
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
 
+        // Input operation
+        System.out.print("Enter the operation (+, -, *, /, %): ");
+        char operation = scanner.next().charAt(0);
 
+        // Input second number
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
 
-        Scanner sc = new Scanner(System.in);
+        double result = 0.0;
 
-    
-        operator = sc.next().charAt(0);
-
-        System.out.println("Enter the num1: ");
-        num1 = sc.nextInt();
-        System.out.println("Enter the num2: ");
-        num2 = sc.nextInt();
-
-        System.out.println(num1 + " and " + num2);
-
-
-
-        // if(operator == 'a'){
-        //     int ans = num1 + num2;
-        //     System.out.println("Addition of " + num1 + " and " + num2 + " = " + ans);
-        // }else if (operator == 's'){
-        //     int ans = num1 - num2;
-        //     System.out.println("Subtraction between " + num1 + " and " + num2 + " = " + ans);
-        // }else if (operator == 'm'){
-        //     int ans = num1 * num2;
-        //     System.out.println("Multiplication between " + num1 + " and " + num2 + " = " + ans);
-        // }else if (operator == 'd'){
-        //     int ans = num1 / num2;
-        //     System.out.println("Division between " + num1 + " and " + num2 + " = " + ans);
-        // }
-
-
-        switch (operator) {
-            case 'a':
-                int sum = num1 + num2;
-                System.out.println("Addition of " + num1 + " and " + num2 + " = " + sum);
+        // Perform the selected operation
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
                 break;
-            case 's':
-                int diff = num1 - num2;
-                System.out.println("Subtration of " + num1 + " and " + num2 + " = " + diff);
+            case '-':
+                result = num1 - num2;
                 break;
-            case 'm':
-                int prod = num1 * num2;
-                System.out.println("Multiplication of " + num1 + " and " + num2 + " = " + prod);
+            case '*':
+                result = num1 * num2;
                 break;
-            case 'd':
-                int div = num1 / num2;
-                System.out.println("Division of " + num1 + " and " + num2 + " = " + div);
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    return;
+                }
                 break;
-            case 'r':
-                int remainder = num1 % num2;
-                System.out.println("Modulo of " + num1 + " and " + num2 + " = " + remainder);
+            case '%':
+                if (num2 != 0) {
+                    result = num1 % num2;
+                } else {
+                    System.out.println("Error: Modulo by zero is not allowed.");
+                    return;
+                }
                 break;
-        
             default:
-                System.out.println("choose correct option: ");;
+                System.out.println("Error: Invalid operation entered.");
+                return;
         }
 
+        // Display the result
+        System.out.println("Result: " + result);
+
+        scanner.close();
     }
 }
