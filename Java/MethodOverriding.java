@@ -1,4 +1,4 @@
-//     4. Explain the concept of method overriding in Java with an example.
+// 4. Explain the concept of method overriding in Java with an example.
 
 
 class FindingAreaOfRectangle{
