@@ -24,15 +24,25 @@ int knapsack(int capacity, int weights[], int values[], int n) {
         }
     }
 
+    for(int i = 0; i < n+1; i++){
+        for(int j = 0; j < capacity +1; j++){
+            printf("%d, ", dp[i][j]);
+        }
+        printf("\n");
+    }
+
     // The final result is stored in dp[n][capacity]
     return dp[n][capacity];
 }
 
 // Example usage
 int main() {
-    int values[] = {60, 100, 120};
-    int weights[] = {10, 20, 30};
-    int capacity = 50;
+    // int values[] = {60, 100, 120};
+    // int weights[] = {10, 20, 30};
+    // int capacity = 50;
+    int values[] = {2, 3, 1, 4};
+    int weights[] = {3, 4, 5, 6};
+    int capacity = 8;
     int n = sizeof(values) / sizeof(values[0]);
 
     printf("Maximum value that can be obtained: %d\n", knapsack(capacity, weights, values, n));
