@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define N 4 
+#define N 10
 
 int board[N][N];
 
@@ -23,14 +23,14 @@ int isSafe(int row, int col) {
     return 1;  
 }
 
-int solveNQUtil(int col) {
+int NQueen(int col) {
     if (col >= N) {
         return 1;
     }
     for (int i = 0; i < N; i++) {
         if (isSafe(i, col)) {
             board[i][col] = 1;
-            if (solveNQUtil(col + 1) == 1) {
+            if (NQueen(col + 1) == 1) {
                 return 1;
             }
             board[i][col] = 0;
@@ -49,7 +49,7 @@ void printSolution() {
 }
 
 int main() {
-    if (solveNQUtil(0) == 0) {
+    if (NQueen(0) == 0) {
         printf("Solution does not exist\n");
     } else {
         printf("Solution:\n");
