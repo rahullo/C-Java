@@ -45,7 +45,7 @@ void insertionSort(int array[], int size){
 		int key = array[i];
 		int j = i-1;
 
-		while(array[j] > key&& j >= 0){
+		while(array[j] > key && j >= 0){
 			array[j+1] = array[j];
 			--j;
 		}
