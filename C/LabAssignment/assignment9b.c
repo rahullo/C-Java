@@ -18,7 +18,52 @@ struct Node* createNode(int data){
 }
 
 
-int main(){
+struct Node* insertAtFirst(struct Node *head, int data){
+    struct Node* newNode = createNode(data);
 
-    printf("Rahul");
+    if(newNode != NULL){
+        newNode->next = head;
+        head = newNode;
+    }
+    return head;
+}
+
+struct Node* deleteAtFirst(struct Node *head){
+    struct Node* current = head;
+    if(current != NULL){
+        head = current->next;
+        // free(current);
+    }
+    return head;
+}
+
+
+// Function to display the linked list
+void displayList(struct Node *head) {
+    struct Node* current = head;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
+}
+
+
+int main(){
+    struct Node *head = NULL;
+
+    // Insert nodes at the beginning
+    head = insertAtFirst(head, 100);
+    head = insertAtFirst(head, 200);
+    head = insertAtFirst(head, 300);
+
+    // Display the linked list
+    printf("Linked List after insertions at the beginning:\n");
+    displayList(head);
+
+    head = deleteAtFirst(head);
+    displayList(head);
+
+
+    return 0;
 }
