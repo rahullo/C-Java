@@ -98,24 +98,24 @@ int main() {
     struct Node *head = NULL;
 
     // Insert nodes at the beginning
-    head = insertAtBeginning(head, 10);
-    head = insertAtBeginning(head, 20);
-    head = insertAtBeginning(head, 30);
+    head = insertAtBeginning(head, 100);
+    head = insertAtBeginning(head, 200);
+    head = insertAtBeginning(head, 300);
 
     // Display the linked list
     printf("Linked List after insertions at the beginning:\n");
     displayList(head);
 
     // Insert nodes at the end
-    head = insertAtEnd(head, 40);
-    head = insertAtEnd(head, 50);
+    head = insertAtEnd(head, 400);
+    head = insertAtEnd(head, 500);
 
     // Display the linked list
     printf("Linked List after insertions at the end:\n");
     displayList(head);
 
     // Delete a node
-    head = deleteNode(head, 20);
+    head = deleteNode(head, 200);
 
     // Display the linked list after deletion
     printf("Linked List after deleting node with data 20:\n");
