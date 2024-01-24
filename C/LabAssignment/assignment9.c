@@ -9,7 +9,7 @@ struct Node {
 
 // Function to create a new node with the given data
 struct Node* createNode(int data) {
-    struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (newNode != NULL) {
         newNode->data = data;
         newNode->next = NULL;
@@ -19,7 +19,7 @@ struct Node* createNode(int data) {
 
 // Function to insert a node at the beginning of the linked list
 struct Node* insertAtBeginning(struct Node *head, int data) {
-    struct Node *newNode = createNode(data);
+    struct Node* newNode = createNode(data);
     if (newNode != NULL) {
         newNode->next = head;
         head = newNode;
@@ -29,7 +29,7 @@ struct Node* insertAtBeginning(struct Node *head, int data) {
 
 // Function to insert a node at the end of the linked list
 struct Node* insertAtEnd(struct Node *head, int data) {
-    struct Node *newNode = createNode(data);
+    struct Node* newNode = createNode(data);
     if (newNode != NULL) {
         if (head == NULL) {
             // If the list is empty, the new node becomes the head
@@ -48,7 +48,7 @@ struct Node* insertAtEnd(struct Node *head, int data) {
 
 // Function to delete a node with the given data from the linked list
 struct Node* deleteNode(struct Node *head, int data) {
-    struct Node *current = head;
+    struct Node* current = head;
     struct Node *prev = NULL;
 
     // Search for the node to delete
@@ -74,7 +74,7 @@ struct Node* deleteNode(struct Node *head, int data) {
 
 // Function to display the linked list
 void displayList(struct Node *head) {
-    struct Node *current = head;
+    struct Node* current = head;
     while (current != NULL) {
         printf("%d -> ", current->data);
         current = current->next;
@@ -84,8 +84,8 @@ void displayList(struct Node *head) {
 
 // Function to free the memory allocated for the linked list
 void freeList(struct Node *head) {
-    struct Node *current = head;
-    struct Node *nextNode;
+    struct Node* current = head;
+    struct Node* nextNode;
 
     while (current != NULL) {
         nextNode = current->next;
