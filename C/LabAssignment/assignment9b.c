@@ -28,6 +28,7 @@ struct Node* insertAtFirst(struct Node *head, int data){
     return head;
 }
 
+// Function to delete First Node
 struct Node* deleteFirstNode(struct Node *head){
     struct Node* current = head;
     if(current != NULL){
@@ -37,22 +38,44 @@ struct Node* deleteFirstNode(struct Node *head){
     return head;
 }
 
-
+// Function to delete Last Node
 struct Node* deleteLastNode(struct Node *head){
 	struct Node* current = head;
 	struct Node* prev = NULL;
 	
 	while(current->next != NULL){
 		prev = current;
-		printf("%d, ", current->data);
 		current = current->next;
-		
 	}
-    printf("\n");
-	printf("%d\n", prev->data);
+	
 	prev->next = NULL;
 	free(current);
 	return head;
+}
+
+//Function to delete Node with given data
+struct Node* deleteNode(struct Node *head, int data){
+	struct Node* current = head;
+	struct Node* prev = NULL;
+	
+	while(current != NULL && current->data != data){
+		prev = current;
+		current = current->next;
+	}
+
+    // If the node is found, delete it
+	if (current != NULL) {
+        if (prev == NULL) {
+            // If the node is at the beginning
+            head = current->next;
+        } else {
+            // If the node is in the middle or end
+            prev->next = current->next;
+        }
+        free(current);
+    }
+
+    return head;
 }
 
 // Function to display the linked list
@@ -84,6 +107,9 @@ int main(){
     displayList(head);
     
     head = deleteLastNode(head);
+    displayList(head);
+
+    head = deleteNode(head, 300);
     displayList(head);
 
 
