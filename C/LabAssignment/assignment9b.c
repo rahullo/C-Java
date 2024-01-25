@@ -28,7 +28,7 @@ struct Node* insertAtFirst(struct Node *head, int data){
     return head;
 }
 
-struct Node* deleteAtFirst(struct Node *head){
+struct Node* deleteFirstNode(struct Node *head){
     struct Node* current = head;
     if(current != NULL){
         head = current->next;
@@ -37,6 +37,23 @@ struct Node* deleteAtFirst(struct Node *head){
     return head;
 }
 
+
+struct Node* deleteLastNode(struct Node *head){
+	struct Node* current = head;
+	struct Node* prev = NULL;
+	
+	while(current->next != NULL){
+		prev = current;
+		printf("%d, ", current->data);
+		current = current->next;
+		
+	}
+    printf("\n");
+	printf("%d\n", prev->data);
+	prev->next = NULL;
+	free(current);
+	return head;
+}
 
 // Function to display the linked list
 void displayList(struct Node *head) {
@@ -56,12 +73,17 @@ int main(){
     head = insertAtFirst(head, 100);
     head = insertAtFirst(head, 200);
     head = insertAtFirst(head, 300);
+    head = insertAtFirst(head, 400);
+    head = insertAtFirst(head, 500);
 
     // Display the linked list
     printf("Linked List after insertions at the beginning:\n");
     displayList(head);
 
-    head = deleteAtFirst(head);
+    head = deleteFirstNode(head);
+    displayList(head);
+    
+    head = deleteLastNode(head);
     displayList(head);
 
 
