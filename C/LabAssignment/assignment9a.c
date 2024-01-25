@@ -47,27 +47,23 @@ struct Node* insertAtEnd(struct Node *head, int data) {
 }
 
 // Function to delete a node with the given data from the linked list
-struct Node* deleteNode(struct Node *head, int data) {
+struct Node* insertNode(struct Node *head, int pos, int data) {
     struct Node* current = head;
-    struct Node *prev = NULL;
+    struct Node* prev = NULL;
+    struct Node* newNode = createNode(data);
 
-    // Search for the node to delete
-    while (current != NULL && current->data != data) {
+    if(pos <= 1){
+        return insertAtBeginning(head, data);
+    }
+
+    int i;
+    for(i = 0; i < pos-1; i++){
         prev = current;
         current = current->next;
     }
 
-    // If the node is found, delete it
-    if (current != NULL) {
-        if (prev == NULL) {
-            // If the node is at the beginning
-            head = current->next;
-        } else {
-            // If the node is in the middle or end
-            prev->next = current->next;
-        }
-        free(current);
-    }
+    prev->next = newNode;
+    newNode->next = current;
 
     return head;
 }
@@ -115,10 +111,20 @@ int main() {
     displayList(head);
 
     // Delete a node
-    head = deleteNode(head, 200);
+    head = insertNode(head, 3 ,700);
+    printf("Linked List after insertion of node at position 3:\n");
+    displayList(head);
 
-    // Display the linked list after deletion
-    printf("Linked List after deleting node with data 20:\n");
+    head = insertNode(head, 7 ,600);
+
+    // Display the linked list after insertion
+    printf("Linked List after insertion of node at position 7:\n");
+    displayList(head);
+
+    head = insertNode(head, 1 ,800);
+
+    // Display the linked list after insertion
+    printf("Linked List after insertion of node at position 1:\n");
     displayList(head);
 
     // Free the memory allocated for the linked list
