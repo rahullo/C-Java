@@ -39,8 +39,10 @@ void printingArray(int array[], int size){
 int main(){
     int array[] = {8, 9, 7, 5, 6, 3, 4, 2, 1, 0};
 
-    printingArray(array, 10);
-    quickSort(array, 0, 10);
-    printingArray(array, 10);
+	int size = sizeof(array)/sizeof(array[0]);
+
+    printingArray(array, size);
+    quickSort(array, 0, size);
+    printingArray(array, size);
     
 }
