@@ -10,10 +10,9 @@ void printArray(int array[], int size){
 
 int partition(int array[], int low, int high){
 	int pivot = high;
-	int i = low -1;
-	int j;
-
-	for(j = low; j < high; j++)	{
+	int i = low - 1;
+	int j; 
+	for(j = low; j < high; j++){
 		if(array[j] < array[pivot]){
 			i++;
 			int temp = array[i];
@@ -39,9 +38,8 @@ int main(){
 	// int array[] = {8, 4, 0, 2, 7, 1, 6, 3, 5, 5, 58 ,65, 4, 22, 68 ,35, 98, 75, 95, 65, 42, 36, 76, 91, 52, 63, 298, 7};
 	int array[] = {8, 4, 0, 2, 7, 1, 6, 3, 5};
 	int size = sizeof(array)/sizeof(array[0]);
-	printf("%d\n", size);
+
 	printArray(array, size);
-	printf("%d\n", size);
 
 	quickSort(array, 0, size);
 
