@@ -8,6 +8,19 @@ void printArray(int array[], int size){
 	printf("\n");
 }
 
+void insertionSort(int array[], int size){
+	int i;
+	for(i = 1 ; i < size; i++){
+		int key = array[i];
+		int j = i-1;
+		while(key < array[j] && j >=0){
+			array[j+1] = array[j];
+			j--;
+		}
+		array[j+1] = key;
+	}
+}
+
 int partition(int array[], int low, int high){
 	int pivot = high;
 	int i = low - 1;
@@ -41,7 +54,7 @@ int main(){
 
 	printArray(array, size);
 
-	quickSort(array, 0, size);
+	insertionSort(array, size);
 
 	printArray(array, size);
 
