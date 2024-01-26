@@ -54,7 +54,6 @@ int main(){
 
 	printArray(array, size);
 
-
 	quickSort(array, 0, size);
 	// insertionSort(array, size);
 
