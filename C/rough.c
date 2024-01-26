@@ -10,10 +10,10 @@ void printArray(int array[], int size){
 
 void insertionSort(int array[], int size){
 	int i;
-	for(i = 1 ; i < size; i++){
+	for(i = 1; i < size; i++){
 		int key = array[i];
 		int j = i-1;
-		while(key < array[j] && j >=0){
+		while(array[j] > key && j >= 0){
 			array[j+1] = array[j];
 			j--;
 		}
@@ -23,8 +23,8 @@ void insertionSort(int array[], int size){
 
 int partition(int array[], int low, int high){
 	int pivot = high;
-	int i = low - 1;
-	int j; 
+	int i = low -1;
+	int j;
 	for(j = low; j < high; j++){
 		if(array[j] < array[pivot]){
 			i++;
@@ -54,7 +54,9 @@ int main(){
 
 	printArray(array, size);
 
-	insertionSort(array, size);
+
+	quickSort(array, 0, size);
+	// insertionSort(array, size);
 
 	printArray(array, size);
 
