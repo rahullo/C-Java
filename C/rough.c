@@ -17,8 +17,7 @@ void printArray(int array[], int size){
 }
 
 void insertionSort(int array[], int size){
-	int i;
-	for(i = 1; i < size; i++){
+	for(int i = 1; i < size; i++){
 		int key = array[i];
 		int j = i-1;
 		while(array[j] > key && j >= 0){
@@ -79,8 +78,8 @@ int main(){
 
 	printArray(array, size);
 
-	quickSort(array, 0, size);
-	// insertionSort(array, size);
+	// quickSort(array, 0, size);
+	insertionSort(array, size);
 
 	printArray(array, size);
 
