@@ -32,8 +32,8 @@ void insertionSort(int array[], int size){
 int partition(int array[], int low, int high){
 	int pivot = high;
 	int i = low -1;
-	int j;
-	for(j = low; j < high; j++){
+	
+	for(int j = low; j < high; j++){
 		if(array[j] < array[pivot]){
 			i++;
 			int temp = array[i];
@@ -41,9 +41,9 @@ int partition(int array[], int low, int high){
 			array[j] = temp;
 		}
 	}
-	int temp2 = array[i+1];
+	int temp = array[i+1];
 	array[i+1] = array[pivot];
-	array[pivot] = temp2;
+	array[pivot] = temp;
 	return i+1;
 }
 
@@ -74,22 +74,22 @@ int knapsack(int wt[], int val[], int W, int N){
 
 int main(){
 	// int array[] = {8, 4, 0, 2, 7, 1, 6, 3, 5, 5, 58 ,65, 4, 22, 68 ,35, 98, 75, 95, 65, 42, 36, 76, 91, 52, 63, 298, 7};
-	// int array[] = {8, 4, 0, 2, 7, 1, 6, 3, 5};
-	// int size = sizeof(array)/sizeof(array[0]);
+	int array[] = {8, 4, 0, 2, 7, 1, 6, 3, 5};
+	int size = sizeof(array)/sizeof(array[0]);
 
-	// printArray(array, size);
+	printArray(array, size);
 
-	// quickSort(array, 0, size);
-	// // insertionSort(array, size);
+	quickSort(array, 0, size);
+	// insertionSort(array, size);
 
-	// printArray(array, size);
+	printArray(array, size);
 
-	int wt[] = {3, 4, 5};
-    int val[] = {30, 50, 60};
-    int W = 8;
-    int N = sizeof(wt) / sizeof(wt[0]);
+	// int wt[] = {3, 4, 5};
+    // int val[] = {30, 50, 60};
+    // int W = 8;
+    // int N = sizeof(wt) / sizeof(wt[0]);
 
-    int maxValue = knapsack(wt, val, W, N);
-    printf("Maximum value attainable: %d\n", maxValue);
+    // int maxValue = knapsack(wt, val, W, N);
+    // printf("Maximum value attainable: %d\n", maxValue);
 
 }
