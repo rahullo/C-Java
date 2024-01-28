@@ -7,45 +7,57 @@
 //     7. Design a class hierarchy for a zoo management system. Include classes for Animal, Mammal, Bird, and Reptile. Implement methods for feeding, breeding, and habitat management.
 
 
-class Animal {
+// class Animal {
 
-    String name;
-    String food;
+//     String name;
+//     String food;
 
-    public Animal(String name, String food){
-        this.name = name;
-        this.food = food;
+//     public Animal(String name, String food){
+//         this.name = name;
+//         this.food = food;
 
-    }
+//     }
 
-    public void eat(){
-        System.out.println(name + " can eat " + food);
-    }
-}
-
-
-class Lion extends Animal {
+//     public void eat(){
+//         System.out.println(name + " can eat " + food);
+//     }
+// }
 
 
-    public Lion(String name, String food){
-        super(name, food);
+// class Lion extends Animal {
 
-    }
 
-    public void eat(){
-        System.out.println("Lion eats meat(non-veg)..");
-    }
-}
+//     public Lion(String name, String food){
+//         super(name, food);
 
-class Rough {
-    public static void main(String[] args){
-        System.out.println("Rahul Lohra");
+//     }
 
-        Animal a1 = new Animal("Goat", "Grass");
+//     public void eat(){
+//         System.out.println("Lion eats meat(non-veg)..");
+//     }
+// }
 
-        // Lion l1 = new Lion();
+// class Rough {
+//     public static void main(String[] args){
+//         System.out.println("Rahul Lohra");
 
-        a1.eat();
-        // l1.eat();
+//         Animal a1 = new Animal("Goat", "Grass");
+
+//         // Lion l1 = new Lion();
+
+//         a1.eat();
+//         // l1.eat();
+//     }
+// }
+
+/**
+ * Rough
+ */
+public class Rough {
+
+    public static void main(String[] args) {
+        for(int i = 0; i < 10; i++){
+            System.out.println("Hello World");
+        }
     }
 }
