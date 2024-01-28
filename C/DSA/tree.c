@@ -57,6 +57,19 @@ struct Node* insertNode(struct Node* root, int data){
     return root;
 }
 
+struct Node* searchNode(struct Node* root, int data){
+    if(root == NULL || root->data == data){
+        return root;
+    }
+
+    if(data < root->data){
+        return searchNode(root->left, data);
+    }else if(data > root->data){
+        return searchNode(root->right, data);
+    }
+}
+
+
 int main(){
     struct Node* root  = NULL;
 
@@ -69,4 +82,6 @@ int main(){
     insertNode(root, 80);
 
     printTree(root, 0);
+    struct Node* ans = searchNode(root, 40);
+    printf("%d", ans->data);
 }
