@@ -9,6 +9,33 @@ struct Node {
     struct Node* right;
 };
 
+// Preorder traversal
+void preorderTraversal(struct Node* root) {
+    if (root != NULL) {
+        printf("%d ", root->data);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
+    }
+}
+
+// Inorder traversal
+void inorderTraversal(struct Node* root) {
+    if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->data);
+        inorderTraversal(root->right);
+    }
+}
+
+// Postorder traversal
+void postorderTraversal(struct Node* root) {
+    if (root != NULL) {
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        printf("%d ", root->data);
+    }
+}
+
 
 // Function to print tree data in a tree structure
 void printTree(struct Node* root, int space) {
@@ -123,12 +150,19 @@ int main(){
     insertNode(root, 35);
     insertNode(root, 68);
 
-    printTree(root, 0);
+
+    inorderTraversal(root);
+    printf("\n");
+
+
+    // printTree(root, 0);
     // struct Node* ans = searchNode(root, 40);
     // printf("%d", ans->data);
-    printf("\n");
-    printf("\n");
-    printf("\n");
-    deleteNode(root, 25);
-    printTree(root, 0);
+    // printf("\n");
+    // printf("\n");
+    // printf("\n");
+    deleteNode(root, 40);
+    // printTree(root, 0);
+    inorderTraversal(root);
+
 }
