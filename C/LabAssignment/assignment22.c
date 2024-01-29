@@ -1,3 +1,7 @@
+// Implement following functions for Binary Search Trees
+
+
+
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -25,6 +29,7 @@ struct Node* inOrderTraversal(struct Node* root){
     }
 }
 
+// b. Insertion of a new node
 struct Node* insertNode(struct Node* root, int data){
     if(root == NULL){
         return createNode(data);
@@ -38,6 +43,8 @@ struct Node* insertNode(struct Node* root, int data){
     return root;
 }
 
+
+// a. Search a given item (Recursive & Non-Recursive)
 struct Node* searchNode(struct Node* root, int data){
     if(root->data == data){
         return root;
@@ -49,6 +56,28 @@ struct Node* searchNode(struct Node* root, int data){
         return searchNode(root->right, data);
     }
 }
+
+
+// c. Maximum element of the BST
+struct Node* searchMaximumNode(struct Node* root){
+    if(root->right == NULL){
+        return root;
+    }
+
+    return searchMaximumNode(root->right);
+}
+
+// d. Minimum element of the BST
+struct Node* searchMinimumNode(struct Node* root){
+    if(root->left == NULL){
+        return root;
+    }
+
+    return searchMinimumNode(root->left);
+}
+
+// e. Successor of the BST
+// f. Delete a given node from the BST
 
 int main(){
     struct Node* root  = NULL;
@@ -66,5 +95,8 @@ int main(){
     insertNode(root, 68);
 
     inOrderTraversal(root);
+
+    printf("\nMaximum Number in Tree: %d", searchMaximumNode(root)->data);
+    printf("\nMinimum Number in Tree: %d", searchMinimumNode(root)->data);
 
 }
