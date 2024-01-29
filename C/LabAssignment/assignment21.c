@@ -42,6 +42,28 @@ struct Node* inOrderRecursive(struct Node* root){
     }
 }
 // InOrder non-recursive
+void inorderTraversal(struct Node* root) {
+    struct Node* current = root;
+
+    // Use a stack to keep track of nodes to visit
+    struct Node* stack[100];  // Adjust stack size as needed
+    int top = -1;
+
+    while (current != NULL || top != -1) {
+        // Push left children onto the stack
+        while (current != NULL) {
+            stack[++top] = current;
+            current = current->left;
+        }
+
+        // Pop and print the top node
+        current = stack[top--];
+        printf("%d, ", current->data);
+
+        // Move to the right subtree
+        current = current->right;
+    }
+}
 
 // PreOrder recursive
 struct Node* preOrderRecursive(struct Node* root){
@@ -80,7 +102,8 @@ int main(){
 
     inOrderRecursive(root);
     printf("\n");
-    preOrderRecursive(root);
-    printf("\n");
-    postOrderRecursive(root);
+    inorderTraversal(root);
+    // preOrderRecursive(root);
+    // printf("\n");
+    // postOrderRecursive(root);
 }
