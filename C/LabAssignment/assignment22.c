@@ -78,6 +78,36 @@ struct Node* searchMinimumNode(struct Node* root){
 
 // e. Successor of the BST
 // f. Delete a given node from the BST
+struct Node* deleteNode(struct Node* root, int data){
+    if(root == NULL){
+        return root;
+    }
+
+    if(data < root->data){
+        root->left = deleteNode(root->left, data);
+    }else if(data > root->data){
+        root->right = deleteNode(root->right, data);
+    }else {
+        if(root->left == NULL){
+            struct Node* temp = root->right;
+            free(root);
+            return temp;
+        }else if(root->right == NULL){
+            struct Node* temp = root->left;
+            free(root);
+            return temp;
+        }
+        // struct Node* temp = searchMinimumNode(root->right);
+        // root->data = temp->data;
+        // root->right = deleteNode(root->right, temp->data);
+
+        struct Node* temp = searchMaximumNode(root->left);
+        root->data = temp->data;
+        root->left = deleteNode(root->left, temp->data);
+
+    }
+    return root;
+}
 
 int main(){
     struct Node* root  = NULL;
@@ -95,8 +125,12 @@ int main(){
     insertNode(root, 68);
 
     inOrderTraversal(root);
+    deleteNode(root, 55);
+    printf("\n");
+    inOrderTraversal(root);
 
-    printf("\nMaximum Number in Tree: %d", searchMaximumNode(root)->data);
-    printf("\nMinimum Number in Tree: %d", searchMinimumNode(root)->data);
+
+    // printf("\nMaximum Number in Tree: %d", searchMaximumNode(root)->data);
+    // printf("\nMinimum Number in Tree: %d", searchMinimumNode(root)->data);
 
 }
