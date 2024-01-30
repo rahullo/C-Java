@@ -138,13 +138,14 @@ struct Node* postOrderTraversal(struct Node* root){
     while(current != NULL || top != -1){
 
         while(current != NULL){
-            printf("%d, ", current->data);
             stack[++top] = current;
             current = current->left;
         }
 
         // Pop and print the top node
         current = stack[top--];
+        printf("%d, ", current->data);
+
 
         // Move to the right subtree
         current = current->right;
