@@ -19,6 +19,29 @@ struct Node* createNode(int data){
     return newNode;
 }
 
+// Function to print tree data in a tree structure
+void printTree(struct Node* root, int space) {
+    if (root == NULL) {
+        return;
+    }
+
+    // Increase distance between levels
+    space += 4;
+
+    // Print right subtree first
+    printTree(root->right, space);
+
+    // Print current node after spacing
+    printf("\n");
+    for (int i = 4; i < space; i++) {
+        printf(" ");
+    }
+    printf("%d\n", root->data);
+
+    // Print left subtree
+    printTree(root->left, space);
+}
+
 // Function to insert Element in Tree
 struct Node* insertNode(struct Node* root, int data){
     if(root == NULL){
@@ -41,6 +64,7 @@ struct Node* inOrderRecursive(struct Node* root){
         inOrderRecursive(root->right);
     }
 }
+
 // InOrder non-recursive
 void inorderTraversal(struct Node* root) {
     struct Node* current = root;
@@ -74,6 +98,27 @@ struct Node* preOrderRecursive(struct Node* root){
     }
 }
 // PreOrder non-recursive
+struct Node* preOrderTraversal(struct Node* root){
+    struct Node* current = root;
+
+    struct Node* stack[100];
+    int top = -1;
+
+    while(current != NULL || top != -1){
+
+        while(current != NULL){
+            printf("%d, ", current->data);
+            stack[++top] = current;
+            current = current->left;
+        }
+
+        // Pop and print the top node
+        current = stack[top--];
+
+        // Move to the right subtree
+        current = current->right;
+    }
+}
 
 // PostOrder recursive
 struct Node* postOrderRecursive(struct Node* root){
@@ -84,6 +129,27 @@ struct Node* postOrderRecursive(struct Node* root){
     }
 }
 // PostOrder non-recursive
+struct Node* postOrderTraversal(struct Node* root){
+    struct Node* current = root;
+
+    struct Node* stack[100];
+    int top = -1;
+
+    while(current != NULL || top != -1){
+
+        while(current != NULL){
+            printf("%d, ", current->data);
+            stack[++top] = current;
+            current = current->left;
+        }
+
+        // Pop and print the top node
+        current = stack[top--];
+
+        // Move to the right subtree
+        current = current->right;
+    }
+}
 
 int main(){
     struct Node* root  = NULL;
@@ -97,13 +163,31 @@ int main(){
     insertNode(root, 20);
     insertNode(root, 40);
     insertNode(root, 70);
-    insertNode(root, 35);
-    insertNode(root, 68);
-
+    insertNode(root, 27);
+    insertNode(root, 20);
+    
+    // printTree(root, 0);
+    printf("InOrder     Recursively: ");
     inOrderRecursive(root);
     printf("\n");
+    printf("InOrder Non Recursively: ");
     inorderTraversal(root);
-    // preOrderRecursive(root);
-    // printf("\n");
-    // postOrderRecursive(root);
+
+    printf("\n");
+    printf("\n");
+    printf("    PreOrder Recursively: ");
+    preOrderRecursive(root);
+    printf("\n");
+    printf("PreOrder Non Recursively: ");
+    preOrderTraversal(root);
+
+
+    printf("\n");
+    printf("\n");
+    printf("    PostOrder Recursively: ");
+    postOrderRecursive(root);
+    printf("\n");
+    printf("PostOrder Non Recursively: ");
+    // postOrderTraversal(root);
+
 }
