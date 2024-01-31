@@ -151,7 +151,6 @@ struct Node* postOrderTraversal(struct Node* root){
         current = current->right;
     }
 }
-
 int main(){
     struct Node* root  = NULL;
 
