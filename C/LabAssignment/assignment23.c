@@ -69,6 +69,7 @@ void BFS(struct Graph* graph, int startVertex) {
         visited[i] = false;
     }
 
+
     // Create a queue for BFS
     int* queue = (int*)malloc(graph->numVertices * sizeof(int));
     if (queue == NULL) {
@@ -109,6 +110,19 @@ void BFS(struct Graph* graph, int startVertex) {
     free(queue);
 }
 
+// Function to print the graph
+void printGraph(struct Graph* graph) {
+    for (int i = 0; i < graph->numVertices; ++i) {
+        struct Node* current = graph->adjList[i];
+        printf("Adjacency list of vertex %d: ", i);
+        while (current != NULL) {
+            printf("%d ", current->vertex);
+            current = current->next;
+        }
+        printf("\n");
+    }
+}
+
 // Function to free the memory allocated for the graph
 void freeGraph(struct Graph* graph) {
     if (graph != NULL) {
@@ -128,14 +142,30 @@ void freeGraph(struct Graph* graph) {
 int main() {
     struct Graph* graph = createGraph(7);
 
+    // addEdge(graph, 0, 1);
+    // addEdge(graph, 0, 2);
+    // addEdge(graph, 1, 3);
+    // addEdge(graph, 1, 4);
+    // addEdge(graph, 2, 5);
+    // addEdge(graph, 2, 6);
+
+    // Add edges
     addEdge(graph, 0, 1);
-    addEdge(graph, 0, 2);
+    addEdge(graph, 0, 4);
+    addEdge(graph, 1, 2);
     addEdge(graph, 1, 3);
     addEdge(graph, 1, 4);
-    addEdge(graph, 2, 5);
-    addEdge(graph, 2, 6);
+    addEdge(graph, 2, 3);
+    addEdge(graph, 3, 4);
+    addEdge(graph, 5, 3);
+    addEdge(graph, 6, 3);
+    addEdge(graph, 5, 2);
+    addEdge(graph, 6, 1);
 
-    BFS(graph, 1);
+
+    printGraph(graph);
+    printf("\n");
+    BFS(graph, 0);
 
     freeGraph(graph);
 
