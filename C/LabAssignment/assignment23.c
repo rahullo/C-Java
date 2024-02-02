@@ -63,13 +63,10 @@ void BFS(struct Graph* graph, int startVertex) {
     if (visited == NULL) {
         return; // Memory allocation failed
     }
-
     // Initialize all vertices as not visited
     for (int i = 0; i < graph->numVertices; ++i) {
         visited[i] = false;
     }
-
-
     // Create a queue for BFS
     int* queue = (int*)malloc(graph->numVertices * sizeof(int));
     if (queue == NULL) {
