@@ -28,6 +28,8 @@ void insert(char *key, char *value) {
     struct node *new_node = malloc(sizeof(struct node));
     new_node->key = strdup(key);
     new_node->value = strdup(value);
+    printf("%s ", strdup(key));
+    printf("%s ", strdup(value));
     new_node->next = head;
 
     hash_table[index] = new_node;
