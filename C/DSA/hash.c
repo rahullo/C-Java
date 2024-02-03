@@ -22,6 +22,7 @@ int hash_function(char *key) {
 
 void insert(char *key, char *value) {
     int index = hash_function(key);
+    printf("%d\n", index);
     struct node *head = hash_table[index];
 
     struct node *new_node = malloc(sizeof(struct node));
