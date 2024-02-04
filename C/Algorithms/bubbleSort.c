@@ -21,8 +21,6 @@ void printData(int array[], int size){
 }
 
 
-
-
 int main(){
     int array[] = {1, 4, 9, 10, 6, 7, 3, 5, 8, 2 };
 
