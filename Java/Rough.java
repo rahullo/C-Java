@@ -56,8 +56,12 @@
 public class Rough {
 
     public static void main(String[] args) {
-        for(int i = 0; i < 10; i++){
-            System.out.println("Hello World");
-        }
+        String name = "Alice";
+        name = name.toUpperCase(); // name still holds "Alice"
+        System.out.println("Name " + name);
+        String newName = name.toUpperCase(); // newName holds "ALICE"
+
+        System.out.println("newName " + newName);
+
     }
 }
