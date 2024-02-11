@@ -86,17 +86,59 @@
 // }
 
 
-public class Rough {
+// public class Rough {
 
+//     public static void main(String[] args) {
+//         if (args.length == 0) {
+//             System.out.println("No command-line arguments provided.");
+//         } else {
+//             System.out.println("The values given at the command line are:");
+//             for (String arg : args) {
+//                 System.out.println(arg);
+//             }
+//         }
+//     }
+//  }
+ 
+
+import java.util.Arrays;
+
+public class Rough {
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("No command-line arguments provided.");
+        // Example arrays
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {1, 2, 3, 4, 5};
+        
+        // Check if arrays are equal
+        boolean result = areArraysEqual(array1, array2);
+        
+        // Print result
+        if (result) {
+            System.out.println("Arrays are equal.");
         } else {
-            System.out.println("The values given at the command line are:");
-            for (String arg : args) {
-                System.out.println(arg);
-            }
+            System.out.println("Arrays are not equal.");
         }
     }
- }
- 
+    
+    // Function to check if two arrays are equal
+    public static boolean areArraysEqual(int[] array1, int[] array2) {
+        // Check if arrays are of the same length
+        if (array1.length != array2.length) {
+            return false;
+        }
+        
+        // Sort the arrays
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+        
+        // Compare each element of the arrays
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] != array2[i]) {
+                return false;
+            }
+        }
+        
+        // If all elements are equal, return true
+        return true;
+    }
+}
