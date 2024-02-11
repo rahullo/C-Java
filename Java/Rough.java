@@ -53,15 +53,34 @@
 /**
  * Rough
  */
+// public class Rough {
+
+//     public static void main(String[] args) {
+//         String name = "Alice";
+//         name = name.toUpperCase(); // name still holds "Alice"
+//         System.out.println("Name " + name);
+//         String newName = name.toUpperCase(); // newName holds "ALICE"
+
+//         System.out.println("newName " + newName);
+
+//     }
+// }
+
 public class Rough {
-
     public static void main(String[] args) {
-        String name = "Alice";
-        name = name.toUpperCase(); // name still holds "Alice"
-        System.out.println("Name " + name);
-        String newName = name.toUpperCase(); // newName holds "ALICE"
+        String inputString = "Hello, this is a sample string with several words";
 
-        System.out.println("newName " + newName);
+        int wordCount = countWords(inputString);
+        System.out.println("Number of words in the string: " + wordCount);
+    }
 
+    // Function to count the number of words in a string
+    public static int countWords(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0; // Return 0 if the string is null or empty
+        }
+
+        String[] words = str.split("\\s+"); // Split the string into words using whitespace as delimiter
+        return words.length; // Return the number of words
     }
 }
