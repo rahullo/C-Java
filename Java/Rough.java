@@ -66,21 +66,37 @@
 //     }
 // }
 
+// public class Rough {
+//     public static void main(String[] args) {
+//         String inputString = "Hello, this is a sample string with several words";
+
+//         int wordCount = countWords(inputString);
+//         System.out.println("Number of words in the string: " + wordCount);
+//     }
+
+//     // Function to count the number of words in a string
+//     public static int countWords(String str) {
+//         if (str == null || str.isEmpty()) {
+//             return 0; // Return 0 if the string is null or empty
+//         }
+
+//         String[] words = str.split("\\s+"); // Split the string into words using whitespace as delimiter
+//         return words.length; // Return the number of words
+//     }
+// }
+
+
 public class Rough {
+
     public static void main(String[] args) {
-        String inputString = "Hello, this is a sample string with several words";
-
-        int wordCount = countWords(inputString);
-        System.out.println("Number of words in the string: " + wordCount);
-    }
-
-    // Function to count the number of words in a string
-    public static int countWords(String str) {
-        if (str == null || str.isEmpty()) {
-            return 0; // Return 0 if the string is null or empty
+        if (args.length == 0) {
+            System.out.println("No command-line arguments provided.");
+        } else {
+            System.out.println("The values given at the command line are:");
+            for (String arg : args) {
+                System.out.println(arg);
+            }
         }
-
-        String[] words = str.split("\\s+"); // Split the string into words using whitespace as delimiter
-        return words.length; // Return the number of words
     }
-}
+ }
+ 
