@@ -12,6 +12,20 @@ class MyThread extends Thread {
     }
 }
 
+class MyThreadTwo extends Thread{
+    String thr;
+
+    MyThreadTwo(String name){
+        thr = name;
+    }
+
+    public void run(){
+        for(int i = 0; i < 10; i++){
+            System.out.println(thr + i);
+        }
+    }
+}
+
 public class threading {
     public static void main(String[] args) {
         MyThread thread1 = new MyThread();
@@ -20,7 +34,14 @@ public class threading {
         thread1.setName("Thread 1");
         thread2.setName("Thread 2");
 
-        thread1.start();
-        thread2.start();
+        // thread1.start();
+        // thread2.start();
+
+
+        MyThreadTwo threadOne = new MyThreadTwo("Thread 1: ");
+        MyThreadTwo threadTwo = new MyThreadTwo("Thread 2: ");
+
+        threadOne.start();
+        threadTwo.start();
     }
 }
